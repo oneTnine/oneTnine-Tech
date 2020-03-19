@@ -12,8 +12,31 @@
     <script src="https://kit.fontawesome.com/9e54110656.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-
+    <header class="main-header">
+        <nav class="navbar">
+            {{!-- Logo --}}
+            <div class="logo-container" >
+                <a href="/"><img src="/img/oneTnine_Tech_logo_BW.svg" alt="oneTnine tech logo" class="logo"></a>
+                <a href="/" class="logo-txt">TECH</a>
+            </div>
+        
+            {{!-- Hamburger menu --}}
+            <div class="ham-menu">
+                <a href="#"><i class="fas fa-bars hambar" id="hamMenu"></i></a>
+            </div>
+            
+            {{!-- Main Menu --}}
+            <div class="nav-menus">
+                <hr class="bar">
+                <ul class="main-menu show-hide" id="mainMenu">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/aboutUs">ABOUT US</a></li>
+                    <li><a href="/services">SERVICES</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                    <li><a href="/careers">CAREERS</a></li>
+                </ul>
+            </div>
+        </nav>   
     </header>
     
     <main>
