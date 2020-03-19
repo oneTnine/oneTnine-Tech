@@ -1,0 +1,175 @@
+/* IMPORTS */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap");
+
+/* VARIABLES */
+:root {
+    --business-theme: #0F4C81;
+    --business-theme-fg: #FFFFFF;
+    --business-theme-accent-one: #35678C;
+    --business-theme-accent-two: #42556F;
+
+    --business-mainFont: 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* GENERAL CSS */
+a{
+    text-decoration: none;
+}
+
+/* CSS FOR MAIN HEADER */
+.main-header{
+    background-color: var(--business-theme);
+    color: var(--business-theme-fg);
+    font-family: var(--business-mainFont);
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: auto 4em;
+    grid-template-areas:  "logo menudrop"
+                          "menu menu";                     
+}
+
+.logo-container{
+    display: grid;
+    grid-template-columns: 3em auto;
+    grid-template-areas:  "img txt";
+    font-size: 2.2em;
+}
+
+.logo {
+    grid-area: logo;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.logo-txt{
+    grid-area: txt;
+    padding-top: 0.9em;
+    color: var(--business-theme-fg);
+}
+
+.ham-menu {
+    grid-area: menudrop;
+    text-align: center;
+    padding: 0.7em 0.2em 0 0;
+    font-size: 2.5em;
+}
+
+.nav-menus{
+    grid-area: menu;
+    color: var(--business-theme-fg);
+}
+
+.main-menu a {
+    color: var(--business-theme-fg);
+    display: block;
+    line-height: 2.7;
+    text-align: center;
+}
+
+.hambar{
+    color: var(--business-theme-fg);
+}
+
+.bar{
+    font-size: 1em;
+}
+
+/* CSS FOR MAIN FOOTER */
+.main-footer{
+    background-color: var(--business-theme-accent-two);
+    color: var(--business-theme-fg);
+    font-family: var(--business-mainFont);
+    padding-bottom: 1em;
+    line-height: 1.7rem; 
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:  "media media media media"
+                          "link link info info";    
+}
+
+.quick-link a{
+    color: var(--business-theme-fg);
+}
+
+.quick-link{
+    grid-area: link;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.social-media{
+    grid-area: media;
+    margin: 1em auto;
+}
+
+.social-media li{
+    font-size: 2em;
+    display: inline-block;
+    padding: 0 0.5em;
+}
+
+.social-media a{
+    color: var(--business-theme-fg);
+}
+
+.business-info{
+    grid-area: info;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.business-info a{
+    color: var(--business-theme-fg);
+}
+
+
+/* CSS TO TOGGLE SHOW AND HIDE */
+.show-hide{
+    display: none;
+}
+
+
+/* BREAKPOINTS */
+@media screen and (min-width: 65em) {
+    
+    .ham-menu {
+        display: none;
+    }
+
+    .navbar {
+        display: grid;
+        grid-template-columns: 15em auto;
+        grid-template-areas:  "logo menu"; 
+    }
+
+    .logo-container{
+        grid-area: logo;
+    }
+
+    .nav-menus{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-areas:  "gap linebar" 
+                              "gap menus";
+    }
+
+    .bar{
+        grid-area: linebar;
+        font-size: 2em;
+    }
+
+    .main-menu{
+        grid-area: menus;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 5em 0 0;
+    }
+    
+    .main-footer{
+        display: grid;
+        padding-top: 1em;
+        grid-template-columns: auto;
+        grid-template-areas:  "link info media";
+    }
+}
