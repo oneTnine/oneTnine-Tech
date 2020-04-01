@@ -25,6 +25,9 @@ const globalController = require("./controllers/global");
 //Mapping each Controller to app object
 app.use("/",generalController);
 app.use("/",globalController);
+app.use("/",(req,res)=>{
+    res.render("general/404");
+});
 
 // Connecting to Database
 mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
