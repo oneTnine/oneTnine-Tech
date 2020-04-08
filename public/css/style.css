@@ -280,6 +280,41 @@ a{
     text-transform: uppercase;
 }
 
+.about-sec{
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+.page-header{
+    font-size: 1.5em;
+    color:var(--business-theme);
+    font-family: var(--business-mainFont);
+    font-weight: bolder;
+    text-align: center;
+}
+
+.about-us{
+    font-size: 1em;
+    font-family: var(--business-mainFont);
+    line-height: normal;
+    padding: 1em;
+    letter-spacing: 0.05em;
+}
+
+.about-sec ul{
+    list-style-type: circle;
+    list-style-position: outside;
+    margin-left: 3.5em;
+    letter-spacing: 0.05em;
+    font-family: var(--business-mainFont);
+}
+
+.focus-services p{
+    font-weight: bolder;
+    font-family: var(--business-mainFont);
+    color:var(--business-theme);
+    margin-left: 1em;
+}
 
 /* CSS FOR MAIN FOOTER */
 .main-footer{
@@ -411,5 +446,21 @@ a{
 
     .package-sec a{
         padding-top: 20%;
+    }
+
+    .about-sec{
+        padding: 1em;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 2em;
+    }
+
+    .our-history{
+        box-shadow: 0 8px 6px -6px var(--business-theme);
+    }
+
+    .focus-services{
+        padding-top: 3em;
+        box-shadow: 0 8px 6px -6px var(--business-theme);
     }
 }
