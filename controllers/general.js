@@ -16,11 +16,4 @@ router.get("/aboutUs",(req,res)=>{
     })
 });
 
-router.get("/contact",(req,res)=>{
-    res.render("general/contact",{
-        title: "Contact",
-        description: "Contact Page"
-    })
-});
-
 module.exports = router;
