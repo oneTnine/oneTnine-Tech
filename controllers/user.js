@@ -85,11 +85,14 @@ router.post("/contact",(req,res)=>
             
                 notification.push("Inquiry Received, Thank you for contacting oneTnine !");
 
-                res.render("user/contact",{
-                    messages : errors,
-                    data: {...req.body },
-                    notification
-                })
+                // Redirecting to home page
+                res.redirect("/")
+
+                // res.render("user/contact",{
+                //     messages : errors,
+                //     data: {...req.body },
+                //     notification
+                // })
 
             })
             .catch((err)=>{
