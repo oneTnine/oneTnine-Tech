@@ -21,7 +21,7 @@ app.set('view engine', 'handlebars');
 //Loading controllers
 const generalController = require("./controllers/general");
 const globalController = require("./controllers/global");
-const userController = require("./controllers/User");
+const userController = require("./controllers/user");
 
 //Mapping each Controller to app object
 app.use("/",generalController);
