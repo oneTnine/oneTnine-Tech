@@ -4,20 +4,37 @@
 
         <ul class="form-box">
             <li><label for="firstname"></label></li>
-            <li><input type="text" name="firstname" placeholder="First Name"></li><br>
+            <li><input type="text" name="firstname" placeholder="First Name" value="{{data.firstname}}"></li><br>
+            {{#if messages.firstname}}
+                <div class="error-message"> {{messages.firstname}} </div>
+            {{/if}}
 
             <li><label for="lastname"></label></li>
-            <li><input type="text" name="lastname" placeholder="Last Name"></li><br>
-        
+            <li><input type="text" name="lastname" placeholder="Last Name" value="{{data.lastname}}"></li><br>
+            {{#if messages.lastname}}
+                <div class="error-message"> {{messages.lastname}} </div>
+            {{/if}}
+
             <li><label for="email"></label></li>
-            <li><input type="email" name="emailAddress" placeholder="Email address"></li><br>
-            
+            <li><input type="email" name="emailAddress" placeholder="Email address" value="{{data.emailAddress}}"></li><br>
+            {{#if messages.emailAddress}}
+                <div class="error-message"> {{messages.emailAddress}} </div>
+            {{/if}}
+
             <li><label for="description"></label></li>
-            <li><input type="text" name="description" placeholder="Brief description about the project"></li><br>
+            <li><input type="text" name="description" placeholder="Brief description about the project" value="{{data.description}}"></li><br>
+            {{#if messages.description}}
+                <div class="error-message"> {{messages.description}} </div>
+            {{/if}}
         </ul>
 
         <div>
             <input type="submit" value="Submit" class="form-button">
         </div>
+
+        {{#each notification}}
+            <div class="success-message">{{this}}</div>
+        {{/each}}
+
     </form>
 </section>

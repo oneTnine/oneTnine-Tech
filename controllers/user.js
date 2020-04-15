@@ -13,49 +13,92 @@ router.get("/contact",(req,res)=>{
 
 router.post("/contact",(req,res)=>
 {
+    const errors = {};
     const {firstname,lastname,emailAddress,description} = req.body;
 
-    const sgMail = require('@sendgrid/mail');
+    if((firstname=="") || (firstname== null))
+    {
+        errors.firstname="Please enter your first name.";
+    }
 
-    // Email procedure
-    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-    const msg = {
-    to: `${emailAddress}`,
-    from: 'bijayagautam8@gmail.com',
-    subject: `oneTnine Inquiry Confirmation`,
-    html: `
-    <div>
-        <h2>Thank you for contacting oneTnine Team</h2>
-        <h3>We will reach out to you shortly ${firstname}!</h3>
-        <p><strong>You enquiry:</strong>${description}</p></br>
-        <p>Regards,</p>
-        <P>oneTnine Tech Team</P>
-    </div>`
-    };
-    sgMail.send(msg)
-    .then(()=>{
-        console.log(`Registration Email Sent Successfully.`); 
-        const newInquiry = {
-            firstname : firstname,
-            lastname : lastname,
-            emailAddress : emailAddress,
-            description : description
-        }
+    if((lastname=="") || (lastname== null))
+    {
+        errors.lastname="Please enter your last name.";
+    }
 
-        const customerInquiry = new inquiryModel(newInquiry);
-        customerInquiry.save()
-        .then(() => {
-            res.redirect(`/user/contact`)
+    if((emailAddress=="") || (emailAddress== null))
+    {
+        errors.emailAddress="Please enter your email address.";
+    }
+
+    if((description=="") || (description== null))
+    {
+        errors.description="Please enter project description.";
+    }
+
+    if(Object.keys(errors).length > 0)
+    {
+        //Object.keys() method returns an array of a errors object's 
+        console.log(Object.keys(errors));
+        res.render("user/contact",{
+            messages : errors,
+            data: {...req.body }
         })
-        .catch((err)=>{
-            console.log(`Error occured when inserting in the database :${err}`);
-        });  
-    })
-    .catch(err=>{
-        console.log(`Error ${err}`);
-        console.log(`Registration Email Not Sent.`);
-    });
+    }
+    else
+    {
+        const sgMail = require('@sendgrid/mail');
 
+        // Email procedure
+        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+        const msg = {
+        to: `${emailAddress}`,
+        from: 'bijayagautam8@gmail.com',
+        subject: `oneTnine Inquiry Confirmation`,
+        html: `
+        <div>
+            <h2>Hello ${firstname},</h2>
+            <h3>Thank you for contacting oneTnine Team!</h3>
+            <p><strong>Your enquiry:<br></strong>${description}</p></br>
+            <h4>We will reach out to you shortly.</h4>
+            <p>Regards,</p>
+            <P>oneTnine Tech Team</P>
+        </div>`
+        };
+        sgMail.send(msg)
+        .then(()=>{
+            console.log(`Registration Email Sent Successfully.`);
+            const newInquiry = {
+                firstname : firstname,
+                lastname : lastname,
+                emailAddress : emailAddress,
+                description : description
+            }
+
+            const customerInquiry = new inquiryModel(newInquiry);
+            const notification= [];
+
+            customerInquiry.save()
+            .then(() => {
+            
+                notification.push("Inquiry Received, Thank you for contacting oneTnine !");
+
+                res.render("user/contact",{
+                    notification
+                })
+
+            })
+            .catch((err)=>{
+                notification.push("Something went wrong, please contact us directly by phone.");
+                console.log(`Error occured when inserting in the database :${err}`);
+            });  
+        })
+        .catch(err=>{
+            console.log(`Error ${err}`);
+            console.log(`Registration Email Not Sent.`);
+        });
+
+    }
     
 });
 

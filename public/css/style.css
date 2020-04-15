@@ -8,7 +8,10 @@
     --business-theme-accent-one: #35678C;
     --business-theme-accent-two: #42556F;
     --business-form: rgb(197, 220, 252);
+    --errormessage: #ee3d1e;
+    --successmessage: #048b10;
 
+    --validation-message-font: 'Noto Serif', serif;
     --business-mainFont: 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 /* GENERAL CSS */
@@ -77,6 +80,20 @@ a{
 }
 
 /* CSS FOR BODY CONTENT */
+.error-message{
+    color: var(--errormessage);
+    font-family: var(--validation-message-font);
+    padding: 0 0 1em 0;
+    font-size: 0.9rem;
+}
+
+.success-message{
+    color: var(--successmessage);
+    font-family: var(--validation-message-font);
+    padding: 1em 0 1em 0;
+    font-size: 0.9rem;
+}
+
 .invalid-route{
     font-size: 2em;
     text-align: center;
@@ -249,7 +266,7 @@ a{
 }
 
 .user-entry-form{
-    margin: 0 auto;
+    text-align: center;
     max-width: 25em;
     min-width: 20em;
     padding: 0.5em;
@@ -283,6 +300,8 @@ a{
     border: none;
     border-radius: 0.3em;
     text-transform: uppercase;
+    width: 80%;
+    letter-spacing: 0.15em;
 }
 
 .about-sec{
@@ -467,5 +486,14 @@ a{
     .focus-services{
         padding-top: 3em;
         box-shadow: 0 8px 6px -6px var(--business-theme);
+    }
+
+    .user-entry-form{
+        text-align: left;
+        margin: 0 auto;
+    }
+
+    .form-button{
+        width: 30%;
     }
 }
