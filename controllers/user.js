@@ -14,6 +14,8 @@ router.get("/contact",(req,res)=>{
 router.post("/contact",(req,res)=>
 {
     const errors = {};
+    const notification= [];
+
     const {firstname,lastname,emailAddress,description} = req.body;
 
     if((firstname=="") || (firstname== null))
@@ -42,7 +44,8 @@ router.post("/contact",(req,res)=>
         console.log(Object.keys(errors));
         res.render("user/contact",{
             messages : errors,
-            data: {...req.body }
+            data: {...req.body },
+            notification
         })
     }
     else
@@ -76,7 +79,6 @@ router.post("/contact",(req,res)=>
             }
 
             const customerInquiry = new inquiryModel(newInquiry);
-            const notification= [];
 
             customerInquiry.save()
             .then(() => {
