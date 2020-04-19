@@ -150,7 +150,7 @@ a{
 .sec-container{
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     margin: 0 auto;
 }
 
@@ -178,7 +178,7 @@ a{
 }
 
 .sec-container-grid img{
-    max-width: 12em;
+    max-width: 10em;
 }
 
 .packages-sec{
@@ -247,15 +247,15 @@ a{
 }
 
 .base-back{
-    background: rgb(221, 253, 79);
+    background: rgb(237, 248, 189);
 }
 
 .combo-back{
-    background: rgb(79, 212, 253);
+    background: rgb(189, 239, 248);
 }
 
 .allin-back{
-    background: rgb(79, 253, 201);
+    background: rgb(189, 248, 194);
 }
 
 .card-btn{
@@ -465,7 +465,7 @@ a{
     }
 
     .sec-container-grid img{
-        max-width: 13em;
+        max-width: 9em;
     }
 
     .package-sec a{
@@ -495,5 +495,13 @@ a{
 
     .form-button{
         width: 30%;
+    }
+
+    .sec-container{
+        margin: 2em 10em;
+    }
+
+    .packages{
+        margin: 2em 10em;
     }
 }
