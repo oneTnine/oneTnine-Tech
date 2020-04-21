@@ -1,40 +1,48 @@
-<section>
-    <form method="POST" action="/user/contact" class="user-entry-form">
-        <p class="form-header">CONTACT US FORM</p>
+<div class="contact-info">
+    <section class="contact-details">
+        <p class="company-name">oneTnine Inc.</p>
+        <p class="company-address">79 Woodhaven Drive, Brampton, ON, L7A 1Y8</p>
+        <p class="company-number">Give us a call or drop a message at: 647-529-3579</p>
+    </section>
 
-        <ul class="form-box">
-            <li><label for="firstname"></label></li>
-            <li><input type="text" name="firstname" placeholder="First Name" value="{{data.firstname}}"></li><br>
-            {{#if messages.firstname}}
-                <div class="error-message"> {{messages.firstname}} </div>
-            {{/if}}
+    <section>
+        <form method="POST" action="/user/contact" class="user-entry-form">
+            <p class="form-header">CONTACT US FORM</p>
 
-            <li><label for="lastname"></label></li>
-            <li><input type="text" name="lastname" placeholder="Last Name" value="{{data.lastname}}"></li><br>
-            {{#if messages.lastname}}
-                <div class="error-message"> {{messages.lastname}} </div>
-            {{/if}}
+            <ul class="form-box">
+                <li><label for="firstname"></label></li>
+                <li><input type="text" name="firstname" placeholder="First Name" value="{{data.firstname}}"></li><br>
+                {{#if messages.firstname}}
+                    <div class="error-message"> {{messages.firstname}} </div>
+                {{/if}}
 
-            <li><label for="email"></label></li>
-            <li><input type="email" name="emailAddress" placeholder="Email address" value="{{data.emailAddress}}"></li><br>
-            {{#if messages.emailAddress}}
-                <div class="error-message"> {{messages.emailAddress}} </div>
-            {{/if}}
+                <li><label for="lastname"></label></li>
+                <li><input type="text" name="lastname" placeholder="Last Name" value="{{data.lastname}}"></li><br>
+                {{#if messages.lastname}}
+                    <div class="error-message"> {{messages.lastname}} </div>
+                {{/if}}
 
-            <li><label for="description"></label></li>
-            <li><input type="text" name="description" placeholder="Brief description about the project" value="{{data.description}}"></li><br>
-            {{#if messages.description}}
-                <div class="error-message"> {{messages.description}} </div>
-            {{/if}}
-        </ul>
+                <li><label for="email"></label></li>
+                <li><input type="email" name="emailAddress" placeholder="Email address" value="{{data.emailAddress}}"></li><br>
+                {{#if messages.emailAddress}}
+                    <div class="error-message"> {{messages.emailAddress}} </div>
+                {{/if}}
 
-        <div>
-            <input type="submit" value="Submit" class="form-button">
-        </div>
+                <li><label for="description"></label></li>
+                <li><input type="text" name="description" placeholder="Brief description about the project" value="{{data.description}}"></li><br>
+                {{#if messages.description}}
+                    <div class="error-message"> {{messages.description}} </div>
+                {{/if}}
+            </ul>
 
-        {{#each notification}}
-            <div class="success-message">{{this}}</div>
-        {{/each}}
+            <div>
+                <input type="submit" value="Submit" class="form-button">
+            </div>
 
-    </form>
-</section>
+            {{#each notification}}
+                <div class="success-message">{{this}}</div>
+            {{/each}}
+
+        </form>
+    </section>
+</div>
